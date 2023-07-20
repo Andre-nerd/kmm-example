@@ -1,0 +1,32 @@
+CREATE TABLE itemRecord (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    image TEXT NOT NULL,
+    quantity INTEGER NOT NULL DEFAULT 0,
+    url TEXT
+);
+
+selectAll:
+SELECT *
+FROM itemRecord
+ORDER BY id;
+
+insertOrReplace:
+INSERT OR REPLACE INTO itemRecord(
+  image,
+  quantity,
+  url
+)
+VALUES (?, ?, ?);
+
+selectByLabel:
+SELECT *
+FROM itemRecord
+WHERE id = ?;
+
+clearDatabase:
+DELETE FROM itemRecord;
+
+deleteByLabel:
+DELETE
+FROM itemRecord
+WHERE id = ?;
